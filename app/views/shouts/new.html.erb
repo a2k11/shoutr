@@ -1,0 +1,11 @@
+<h1>Make a post <%= current_user.username.capitalize %>.</h1>
+
+<%= form_for @shout do |form| %>
+  <div>
+    <%= form.label :content, "Shout It Out" %>
+  </div>
+  <div>
+    <%= form.text_field :content %>
+  </div>
+  <%= form.submit "Go" %>
+<% end %>

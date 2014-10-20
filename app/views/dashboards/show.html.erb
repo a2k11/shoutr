@@ -1,3 +1,10 @@
 <h1>FUCKER</h1>
 
 <h2>FUCKING STEELERS FANS</h2>
+
+<%= link_to "Make a Shout", new_shout_path %>
+
+<% current_user.shouts.each do |shout| %>
+  <div><%= shout.content %> &nbsp
+  <%= shout.user.username %></div>
+<% end %>
