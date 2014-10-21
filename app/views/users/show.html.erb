@@ -1,0 +1,15 @@
+<h1>This is <%= @user.username.capitalize %>'s page.</h1>
+<br>
+<% unless @user.followers.include? current_user %>
+  <%= button_to "follow" ,  follows_user_path(@user.username) %>
+<% else %>
+  <%= button_to "unfollow" ,  follows_user_path(@user.username), method: :delete %>
+<% end %>
+<br>
+<%= @user.followers.count %>
+<br>
+<% @user.shouts.each do |shout| %>
+  <div>
+    <%= shout.content %>
+  </div>
+<% end %>

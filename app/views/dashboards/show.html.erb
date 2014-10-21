@@ -1,6 +1,6 @@
-<h1>FUCKER</h1>
+<h1><%= link_to "#{current_user.username.capitalize}", user_path(current_user.username) %></h1>
 
-<h2>FUCKING STEELERS FANS</h2>
+<h2>Shouts Page</h2>
 
 <%= link_to "Make a Shout", new_shout_path %>
 

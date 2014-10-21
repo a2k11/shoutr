@@ -12,7 +12,12 @@ Rails.application.routes.draw do
 
   resources :shouts, only: [:new, :create]
   resource :session, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :show] do
+    member do 
+      post "follows" => "follows#create"
+      delete "follows" => "follows#destroy"
+    end
+  end
 
   get "sign_up" => "users#new"
   get "sign_in" => "sessions#new"
