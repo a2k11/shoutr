@@ -19,6 +19,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :text_shouts, only: [:create]
+  resources :photo_shouts, only: [:create]
+  resource :search, only: [:show]
+
   get "sign_up" => "users#new"
   get "sign_in" => "sessions#new"
 end

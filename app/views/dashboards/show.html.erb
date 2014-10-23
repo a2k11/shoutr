@@ -1,10 +1,26 @@
-<h1><%= link_to "#{current_user.username.capitalize}", user_path(current_user.username) %></h1>
-
 <h2>Shouts Page</h2>
 
-<%= link_to "Make a Shout", new_shout_path %>
+<aside>
+  <fieldset>
+    <%= form_for @text_shout do |form| %>
+      <%= form.label :body, "Text Shout" %>
+      <%= form.text_field :body %>
+      <%= form.submit "Go" %>
+    <% end %>
+  </fieldset>
+</aside>
+<aside>
+  <fieldset>
+    <%= form_for @picture_shout do |form| %>
+      <%= form.label :url, "Picture Shout" %>
+      <%= form.text_field :url %>
+      <%= form.submit "Go" %>
+    <% end %>
+  </fieldset>
+</aside>
 
-<% current_user.shouts.each do |shout| %>
-  <div><%= shout.content %> &nbsp
-  <%= shout.user.username %></div>
-<% end %>
+<br>
+<%= render @timeline %>
+<%= paginate @timeline %>
+
+

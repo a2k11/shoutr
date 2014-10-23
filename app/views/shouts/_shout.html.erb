@@ -1,0 +1,5 @@
+<div>
+  <%= render shout.content %>
+  &nbsp&nbsp By: <%= shout.username %>&nbsp&nbsp
+  <%= time_ago_in_words(shout.created_at) %>
+</div>

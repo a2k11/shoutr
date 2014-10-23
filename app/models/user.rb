@@ -25,4 +25,8 @@ class User < ActiveRecord::Base
     username
   end
 
+  def timeline
+    Shout.where(user_id: followed_user_ids).order(created_at: :desc) 
+  end 
+
 end
