@@ -10,7 +10,10 @@ Rails.application.routes.draw do
     root "sessions#new"
   end
 
-  resources :shouts, only: [:new, :create]
+  resources :shouts, only: [:new, :create] do
+    resource :like, only: [:create, :destroy]
+  end
+
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create, :show] do
     member do 

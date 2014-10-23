@@ -3,14 +3,13 @@ class FollowsController < ApplicationController
     user = User.find_by(username: params[:id])
     current_user.follow(user)
 
-    redirect_to user
+    redirect_to :back
   end
 
   def destroy
     user = User.find_by(username: params[:id])
-    current_user.unfollow(user)
-
-    redirect_to user
+    current_user.unfollow(user) 
+    redirect_to :back
   end
 
 end

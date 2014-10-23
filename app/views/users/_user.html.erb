@@ -1,0 +1,10 @@
+<div>
+  <%= link_to user.username, user %>
+  <% if current_user != user %>
+    <% if current_user.followed_users.include? user %>
+      <%= button_to "Unfollow", follows_user_path(user), method: :delete %>
+    <% else %>
+      <%= button_to "Follow", follows_user_path(user) %>
+    <% end %>
+  <% end %>
+</div>

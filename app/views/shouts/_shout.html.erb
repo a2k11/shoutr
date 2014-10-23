@@ -2,4 +2,10 @@
   <%= render shout.content %>
   &nbsp&nbsp By: <%= shout.username %>&nbsp&nbsp
   <%= time_ago_in_words(shout.created_at) %>
+  <% if current_user.liked_shouts.include? shout %>
+    <%= button_to "Unlike", shout_like_path(shout), method: :delete %>
+  <% else %>
+    <%= button_to "Like", shout_like_path(shout) %>
+  <% end %>
+  &nbsp&nbsp <%= pluralize(shout.likes.count, "Like") %>
 </div>
